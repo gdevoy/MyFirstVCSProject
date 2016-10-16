@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.davd.namethattune.MainActivity">
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/selector"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:text="Pianoman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGroup3"
+            android:layout_toEndOf="@+id/radioGroup3"
+            android:id="@+id/radioButton4" />
+
+        <RadioButton
+            android:text="The Hollywood Waltz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGroup3"
+            android:layout_toEndOf="@+id/radioGroup3"
+            android:id="@+id/radioButton6" />
+
+        <RadioButton
+            android:text="Let The River Run"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGroup3"
+            android:layout_toEndOf="@+id/radioGroup3"
+            android:id="@+id/radioButton7" />
+
+        <RadioButton
+            android:text="Saturday Night"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGroup3"
+            android:layout_toEndOf="@+id/radioGroup3"
+            android:id="@+id/radioButton8" />
+
+        <RadioButton
+            android:text="Take It To The Limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGroup3"
+            android:layout_toEndOf="@+id/radioGroup3"
+            android:id="@+id/radioButton9" />
+
+        <RadioButton
+            android:text="Alone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGroup3"
+            android:layout_toEndOf="@+id/radioGroup3"
+            android:id="@+id/radioButton5" />
+
+        <RadioButton
+            android:text="Axelf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGroup3"
+            android:layout_toEndOf="@+id/radioGroup3"
+            android:id="@+id/radioButton2" />
+
+        <RadioButton
+            android:text="Under The Boardwalk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGroup3"
+            android:layout_alignParentStart="true"
+            android:id="@+id/radioButton3" />
+
+
+    </RadioGroup>
+
+    <TextView
+        android:text="Pick a Tune"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:layout_above="@+id/selector"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="CHOOSE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="chooseMusic"
+        android:id="@+id/button3"
+        android:textColor="@android:color/holo_blue_dark"
+        android:layout_above="@+id/textView2"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="PLAY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="playMusic"
+        android:id="@+id/button"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="PAUSE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:onClick="pauseMusic"
+        android:textColor="?android:attr/textColorLink"
+        android:layout_below="@+id/button"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="19dp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:layout_alignBottom="@+id/button"
+        android:layout_toEndOf="@+id/textView2"
+        android:layout_marginStart="11dp" />
+
+    <TextView
+        android:text="Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button2"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginTop="13dp"
+        android:id="@+id/textView3"
+        android:textSize="20sp"
+        android:textColor="@android:color/black" />
+
+
+</RelativeLayout>
