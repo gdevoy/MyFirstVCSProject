@@ -9,7 +9,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-// Under GitHub control as of 15/10/16
+// Under GitHub control as of 16/10/16
 
 public class MainActivity extends AppCompatActivity {
 
