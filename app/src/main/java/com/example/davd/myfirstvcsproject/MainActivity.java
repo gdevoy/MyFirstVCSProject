@@ -42,28 +42,31 @@ public class MainActivity extends AppCompatActivity {
         mySound[7] = MediaPlayer.create(this, R.raw.takeit6);
 
         selector = (RadioGroup)(findViewById(R.id.selector));
-        opt = (TextView)findViewById(R.id.textView);
-        opt.setText("Press PLAY");
+        opt = (TextView)findViewById(R.id.textView);  //  set up the inital messages
+        opt.setText("Press PLAY to start.");
         optT = (TextView)findViewById(R.id.textView3);
+        opt.setText("    ");
 
     }
 
     public void playMusic(View view){
         //set select to rand 0 to 8
-        if (pause_on==1)                // set a no pause state
+        if (pause_on==1)                              // only start the music if paused
             pause_on = 0;
             if (replay == 0) {
                 select = (int) (Math.random() * 8);
                 startTime = System.currentTimeMillis();
                 mySound[select].start();
                 replay++;
-                optT.setText("You can press play to restart ");
+                opt.setText("Press Pause when you think you know it.");
+                optT.setText("You can press PLAY to restart ");
 
             }
             else if(replay==1||replay==2){
                 mySound[select].start();
                 replay++;
-                optT.setText("You can press play to restart");
+                opt.setText("Press Pause when you think you know it.");
+                optT.setText("You can press PLAY to restart");
             }
              else {
                 replay = 0;
@@ -73,18 +76,18 @@ public class MainActivity extends AppCompatActivity {
                 opt.setText("Press PAUSE, select the tune then press CHOOSE");
         }
 
+
+
     public void pauseMusic (View v) {
         if (mySound[select].isPlaying()) {
             mySound[select].pause();
             endTime = System.currentTimeMillis();
         }
         pause_on=1;
-
+        opt.setText("Select your guess then press CHOOSE");
     }
 
-    private void delay(long d1, long d2) {  // method to calculate and output the delay
-        long startTime = d1;
-        long endTime = d2;
+    private void delay() {  // method to calculate and output the delay
         long delay = endTime-startTime;
         double delayf = (double)delay;
         delayf=delayf/1000.0;               // convert ms to seconds
@@ -103,28 +106,28 @@ public class MainActivity extends AppCompatActivity {
         if(pause_on==1) {
             if (ans.equals("Axelf") && select == 0) {
                 opt.setText(OK);
-                delay(startTime,endTime);
+                delay();
             } else if (ans.equals("Under The Boardwalk") && select == 1) {
                 opt.setText(OK);
-                delay(startTime,endTime);
+                delay();
             } else if (ans.equals("Pianoman") && select == 2) {
                 opt.setText(OK);
-                delay(startTime,endTime);
+                delay();
             } else if (ans.equals("Alone") && select == 3) {
                 opt.setText(OK);
-                delay(startTime,endTime);
+                delay();
             } else if (ans.equals("The Hollywood Waltz") && select == 4) {
                 opt.setText(OK);
-                delay(startTime,endTime);
+                delay();
             } else if (ans.equals("Let The River Run") && select == 5) {
                 opt.setText(OK);
-                delay(startTime,endTime);
+                delay();
             } else if (ans.equals("Saturday Night") && select == 6) {
                 opt.setText(OK);
-                delay(startTime,endTime);
+                delay();
             } else if (ans.equals("Take It To The Limit") && select == 7) {
                 opt.setText(OK);
-                delay(startTime,endTime);
+                delay();
             } else {
                 opt.setText(TD);
             }
