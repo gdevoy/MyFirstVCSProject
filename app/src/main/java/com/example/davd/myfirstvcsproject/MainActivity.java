@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     MediaPlayer[] mySound = new MediaPlayer[10];
     int select = 0, pause_on = 1, replay = 0;
-    TextView opt, optT;
+    TextView opt, optT, diag;
     String ans;
 
     @Override
@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         opt.setText("Press PLAY to start.");
         optT = (TextView)findViewById(R.id.textView3);
         opt.setText("    ");
-
+        diag = (TextView)findViewById(R.id.textView4);
+        diag.setText(Integer.toString(999));
     }
 
     public void playMusic(View view){
@@ -60,20 +61,23 @@ public class MainActivity extends AppCompatActivity {
                 replay++;
                 opt.setText("Press Pause when you think you know it.");
                 optT.setText("You can press PLAY to restart ");
-
+                diag.setText(Integer.toString(replay));
             }
-            else if(replay==1||replay==2){
+            else if(replay==1){
                 mySound[select].start();
                 replay++;
                 opt.setText("Press Pause when you think you know it.");
                 optT.setText("You can press PLAY to restart");
+                diag.setText(Integer.toString(replay));
             }
-             else {
-                replay = 0;
-                optT.setText("Press PLAY again for another tune ");
-
+            else if(replay==2){
+                mySound[select].start();
+                replay++;
+                opt.setText("Press Pause when you think you know it.");
+                optT.setText("Last go.");
+                diag.setText(Integer.toString(replay));
             }
-        }
+    }
 
 
 
@@ -84,8 +88,11 @@ public class MainActivity extends AppCompatActivity {
         }
         pause_on=1;
         opt.setText("Select your guess then press CHOOSE");
+        if (replay==3) {
+            replay = 0;
+            diag.setText(Integer.toString(replay));
+        };
     }
-
 
 
     private void delay() {                             // method to calculate and output the delay
@@ -93,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         double delayf = (double)delay;
         delayf=delayf/1000.0;                                             // convert ms to seconds
         optT.setText("You did that in "+Double.toString(delayf)+"s");
-        replay=0;
+        replay=0;                                                         // reset replay
     }
 
 
@@ -133,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                 opt.setText(TD);
             }
 
-
+            diag.setText(Integer.toString(replay));
         }
     }
 }
