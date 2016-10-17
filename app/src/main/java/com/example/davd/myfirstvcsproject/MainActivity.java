@@ -73,13 +73,12 @@ public class MainActivity extends AppCompatActivity {
                 optT.setText("Press PLAY again for another tune ");
 
             }
-                opt.setText("Press PAUSE, select the tune then press CHOOSE");
         }
 
 
 
     public void pauseMusic (View v) {
-        if (mySound[select].isPlaying()) {
+        if (mySound[select].isPlaying()) {               // only pause the music if it is playing
             mySound[select].pause();
             endTime = System.currentTimeMillis();
         }
@@ -87,10 +86,12 @@ public class MainActivity extends AppCompatActivity {
         opt.setText("Select your guess then press CHOOSE");
     }
 
-    private void delay() {  // method to calculate and output the delay
+
+
+    private void delay() {                             // method to calculate and output the delay
         long delay = endTime-startTime;
         double delayf = (double)delay;
-        delayf=delayf/1000.0;               // convert ms to seconds
+        delayf=delayf/1000.0;                                             // convert ms to seconds
         optT.setText("You did that in "+Double.toString(delayf)+"s");
         replay=0;
     }
