@@ -9,6 +9,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.text.DecimalFormat;
+
 // Under GitHub control as of 16/10/16
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     int select = 0, pause_on = 1, replay = 0;
     TextView opt, optT, diag;
     String ans;
+    int Hold = 0;
 
     @Override
     protected void onPause(){
@@ -77,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 optT.setText("Last go.");
                 diag.setText(Integer.toString(replay));
             }
+             Hold=1;
     }
 
 
@@ -92,22 +97,35 @@ public class MainActivity extends AppCompatActivity {
             replay = 0;
             diag.setText(Integer.toString(replay));
         };
+    Hold=2;
     }
 
 
     private void delay() {                             // method to calculate and output the delay
         long delay = endTime-startTime;
         double delayf = (double)delay;
-        delayf=delayf/1000.0;                                             // convert ms to seconds
-        optT.setText("You did that in "+Double.toString(delayf)+"s");
+        delayf=delayf/1000.0;                          // convert ms to seconds
+        DecimalFormat formatVal = new DecimalFormat("##.##");
+        optT.setText("You did that in "+(formatVal.format(delayf))+"s");
         replay=0;                                                         // reset replay
+    Hold=3;
     }
 
 
     public void chooseMusic (View v) {
 
+        String ans;
+
+        // catch the no selection error
+        try{
         RadioButton choice = (RadioButton) findViewById(selector.getCheckedRadioButtonId());
-        String ans = choice.getText().toString();
+        ans = choice.getText().toString();
+        }
+        catch(Exception e) {
+            ans = e.getMessage();
+            optT.setText("You must pick a radio button befor CHOOSE");
+        }
+
         String OK="Correct, PLAY another?";
         String TD="Wrong!!!";
 
@@ -141,6 +159,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
             diag.setText(Integer.toString(replay));
+        Hold=4;
         }
+
     }
 }
